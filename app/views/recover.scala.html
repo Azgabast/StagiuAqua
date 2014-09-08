@@ -1,0 +1,16 @@
+@(message: String)
+
+@main("Welcome to Play") {
+
+
+    <form action="@routes.Envived.checkRecover()" method= "POST" >
+    	Write your email/username :  <input name='@Constants.username' type="text"> 
+    	<input type="submit">
+    </form>
+    You shall receive an email with the credentials you have registered 
+    
+    <b>@message</b>
+    
+    
+
+}

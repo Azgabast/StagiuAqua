@@ -1,0 +1,24 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Envived.index()
+POST	/login						controllers.Envived.login()
+GET		/registration				controllers.Envived.registration()
+GET		/welcome					controllers.Envived.welcome()
+POST	/registrationCheck			controllers.Envived.checkRegistration()
+GET		/update						controllers.Envived.update()
+POST	/checkUpdate				controllers.Envived.checkUpdate()
+GET		/logout						controllers.Envived.logOut()
+GET		/recoverPassword			controllers.Envived.recover()
+GET		/newEnvironment				controllers.Envived.createEnvironment()
+POST	/fwEnvironment/:id			controllers.Envived.fwEnvironment(id:Integer)
+POST	/checkRecover				controllers.Envived.checkRecover()
+GET		/showEnvironments			controllers.Envived.showEnvironments()
+GET		/editEnvironment/:id 		controllers.Envived.editEnvironment(id: Integer)
+GET		/createArea/:id				controllers.Envived.createArea(id:Integer)
+POST	/fwArea/:id					controllers.Envived.fwArea(id:Integer)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

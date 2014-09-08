@@ -1,0 +1,29 @@
+@(message: String)
+
+
+@main("Welcome to Play") {
+
+
+	Tu pari cam :     @message
+
+
+    <form action="@routes.Envived.update()" method="GET">
+    	Update your data :
+    	<input value='@Constants.buttonUpdateData'  type="submit" name="update">
+    
+    </form>
+
+    
+    
+    
+    
+    <a href="@routes.Envived.createEnvironment()">Create a new environment</a>
+    <br>
+    <a href="@routes.Envived.logOut()">Leave the page</a>
+    <br>
+    <a href="@routes.Envived.showEnvironments()">Edit environments</a>
+
+    
+    
+
+}

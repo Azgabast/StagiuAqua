@@ -1,0 +1,6 @@
+@(map: Map[Integer, String])
+
+@for((k,v) <- map) {
+	<a href="@routes.Envived.editEnvironment(k)">@v</a>
+	<br>
+}

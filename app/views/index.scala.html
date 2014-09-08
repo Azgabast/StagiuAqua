@@ -1,0 +1,39 @@
+@(message: String)
+
+@main("Welcome to Play") {
+
+    <form action="@routes.Envived.login()" method="POST">
+    
+    	Email: 
+    	<input name="@Constants.email"><br>
+    	Password:
+    	<input name="@Constants.password" type="password"> 
+    	<br>
+    	
+    	<input value='@Constants.buttonValueSignIn' type="submit" name=@Constants.buttonNameSubmit>
+    	<br>or
+    	Using facebook &nbsp;
+    	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+		</fb:login-button>
+    	<div
+  				class="fb-login-button"
+  				data-send="true"
+  				data-width="450">
+		</div>
+    	
+    	
+    	<br><br><br>
+    	Not yet a member? Then sign up!
+    	<br>
+    	<input value='@Constants.buttonValueSignUp'  type="submit" name=@Constants.buttonNameSubmit>
+    
+    </form>
+    
+    
+    <b>@message</b>
+    <a href="@routes.Envived.recover()">@ConstantsMessages.errorForgotPassword</a>
+    
+    
+    
+
+}

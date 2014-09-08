@@ -1,0 +1,30 @@
+@(form: Form[_])
+
+@main("Welcome to Play") {
+
+    <form action="@routes.Envived.checkUpdate()" method="POST">
+    
+    	Username: 
+    	<input name=@Constants.username value='@session.get(ConstantsPreferences.username)' readonly>
+
+    	<br>
+    	Password:
+    	<input name=@Constants.password type="password"  >
+    	@for(error <- form(Constants.password).errors){
+    		<p>@error.message</p>
+    	}
+    	<br>
+    	Repeat Password:
+    	<input name=@Constants.passwordRepeated type="password">
+    	@for(error <- form(Constants.passwordRepeated).errors){
+    		<p>@error.message</p>
+    	}
+  		<br>
+  		Email Address:
+  		<input name=@Constants.email value='@session.get(ConstantsPreferences.email)' readonly>
+    	<br>
+    	<input value='@Constants.buttonUpdateData' type="submit">
+    
+    </form>
+
+}

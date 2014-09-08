@@ -1,0 +1,36 @@
+@(map: Map[Integer, String],form: models.Environment)
+
+
+@form.getParent
+<form action="@routes.Envived.fwEnvironment(form.getId)" method="POST">
+    	Environment Name:
+    	<input name="@Constants.name" value="@form.getName">
+    	<br>
+    	Environment tags:
+    	<input name=@Constants.tags value='@form.getTags'><br>
+ 		<select name=@Constants.parent>
+ 			@if(form.getParent == "null" ){
+ 				<option value="" selected>No parent</option>
+ 			
+ 			}
+ 			else{
+ 				<option value="">No parent</option>
+  				@for((k,v) <- map) {
+  					@if(v == form.getParent){
+						<option value=@k selected>@v</option>
+					}
+					@if(v != form.getParent){
+						<option value=@k>@v</option>
+					}
+				}
+			}
+  			
+		</select>
+	
+		<br>
+		<input value="@Constants.buttonAddArea" type="submit" name="@Constants.buttonNameSubmit">
+		<br>
+    	<input value="@Constants.buttonUpdateData" type="submit" name=@Constants.buttonNameSubmit>
+    	<br>
+    	<input value="@Constants.buttonDelete" type="submit" name=@Constants.buttonNameSubmit>
+</form>

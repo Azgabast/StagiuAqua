@@ -1,0 +1,48 @@
+@(id_env : Integer)
+
+<html>
+	<head>
+	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+				$(document).ready(function(){
+					$("#textArea").hide();
+  					$("#select").click(function(){
+  						var val = $("#select").val();
+  						if ( val == "default")
+    						$("#textArea").hide();
+    					if ( val == "description")
+    						$("#textArea").show();
+  					});
+  					
+			 });
+		</script>
+	
+	</head>
+	<body></body>
+
+
+	<form action="@routes.Envived.fwArea(id_env)" method="POST">
+    	Area Name:
+    	<input name=@Constants.name>
+
+    	<br>
+    	Tags:<input name=@Constants.tags size="30">
+    	<br>
+    	Feature:
+    	<br>
+    	<select name=@Constants.feature id="select" >
+  			<option value="default" id="none">--------</option>
+  			<option value="description" id="featureSelection">Description</option>
+		</select>
+		<br>
+		
+		<textarea rows="4" cols="50" id="@Constants.textArea" name="@Constants.textArea"></textarea>
+    	
+    	
+    	<input type="submit">
+    	
+    </form>
+    
+    
+</html>    

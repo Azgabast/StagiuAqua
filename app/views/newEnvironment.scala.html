@@ -1,0 +1,61 @@
+@(map: Map[Integer, String])
+
+<html>
+	<head>
+	
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+				$(document).ready(function(){
+					$("#textArea").hide();
+  					$("#select").click(function(){
+  						var val = $("#select").val();
+  						if ( val == "default")
+    						$("#textArea").hide();
+    					if ( val == "description")
+    						$("#textArea").show();
+  					});
+  					
+			 });
+		</script>
+	
+	</head>
+	<body></body>
+
+	@for((k,v) <- map) {
+		@k
+	}
+
+	@map.foreach {keyVal => println(keyVal._1 + "=" + keyVal._2)}
+	<form action="@routes.Envived.fwEnvironment(0)" method="POST">
+    	Environment Name:
+    	<input name=@Constants.name>
+    	<br>Environment Parent:
+    	
+    	
+    	<select name=@Constants.parent>
+  			<option value="">No parent</option>
+  			@for((k,v) <- map) {
+				<option value=@k>@v</option>
+			}
+  			
+		</select>
+    	<br>
+    	Tags:<input name=@Constants.tags size="30">
+    	<br>
+    	Feature:
+    	<br>
+    	<select name=@Constants.feature id="select" >
+  			<option value="default" id="none">--------</option>
+  			<option value="description" id="featureSelection">Description</option>
+		</select>
+		<br>
+		
+		<textarea rows="4" cols="50" id="@Constants.textArea" name="@Constants.textArea"></textarea>
+    	
+    	
+    	<input type="submit">
+    	
+    </form>
+    
+    
+</html>    

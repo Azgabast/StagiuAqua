@@ -1,0 +1,45 @@
+@(form: Form[_])
+
+@main("Welcome to Play") {
+
+    <form action="@routes.Envived.checkRegistration()" method="POST">
+    
+    	Email Address:
+  		<input name=@Constants.email>
+  		@for(error <- form(Constants.email).errors){
+    		<p>@error.message</p>
+    	}
+  		<br>
+    	First Name:
+    	<input name=@Constants.first_name>
+    	@for(error <- form(Constants.first_name).errors){
+    		<p>@error.message</p>
+    	}
+  		<br>
+  		
+  		Last Name:
+    	<input name=@Constants.last_name>
+    	@for(error <- form(Constants.last_name).errors){
+    	<p>@error.message</p>
+    	}
+  		<br>
+    	
+    	Password:
+    	<input name=@Constants.password1 type="password">
+    	@for(error <- form(Constants.password1).errors){
+    		<p>@error.message</p>
+    	}
+    	<br>
+    	Repeat Password:
+    	<input name=@Constants.password2 type="password">
+    	 @for(error <- form(Constants.password2).errors){
+    		<p>@error.message</p>
+    	}
+  		<br>
+
+    	<br>
+    	<input value=@Constants.buttonValueSignUp type="submit" name=@Constants.buttonNameSubmit>
+    
+    </form>
+
+}
